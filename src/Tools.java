@@ -1,19 +1,17 @@
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
+import java.util.Scanner;
 
 public class Tools {
-    public static <T> Iterable<Deque<T>> splitList(Deque<T> l, int i) {
-        Deque<T> one= new ArrayList<>(l);
-        Deque<T> sub = one.subList(0, i);
-        Deque<T> two = new ArrayList<T>(sub);
-        sub.clear();
-        Deque<Deque<T>> result = new ArrayList<Deque<T>>();
-        result.add(one);
-        result.add(two);
-        return result;
-    }
-    public static <T> Iterable<Deque<T>> splitList(Deque<T> l) {
-        splitList(l, (l.size() / 2));
+    public static <T> boolean compare(T o1, T o2) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(o1 + " < " + o2 + "? (y/n)");
+        String result = sc.nextLine();
+        switch (result) {
+            case "y": case "Y":
+                return true;
+            case "n": case "N":
+                return false;
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 }
